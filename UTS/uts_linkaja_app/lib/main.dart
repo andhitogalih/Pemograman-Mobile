@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart'; //tes
-
+import 'package:flutter/material.dart'; 
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:uts_linkaja_app/history.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,6 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Color.fromARGB(255, 167, 167, 167),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
@@ -18,13 +20,18 @@ class MainApp extends StatelessWidget {
 }
 
 final List<String> imgList = [
+  'https://cdn.linkaja.com/website/posts/March2022/1647938109-Pembayaran%20Resmi%20KP.jpg',
+  'https://www.astronauts.id/blog/wp-content/uploads/2022/10/Belanja-Hemat-di-Astro-Pakai-LinkAja-Langsung-Dapat-Cashback-Spesial.jpg',
+  'https://cdn.linkaja.com/website/posts/May2022/1653372317-WEB%20BANNER%20794x366%20(50).jpg',
+  'https://cdn.linkaja.com/website/posts/March2023/1678099933-HEADER%20ARTICLE%20592X342.jpg',
+  'https://cdn.linkaja.com/website/posts/March2022/1648723321-WEB%20BANNER%20794x366%20-%202022-03-31T173852.731.jpg',
 ];
 
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
           margin: const EdgeInsets.all(5.0),
           child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
             child: Image.network(item, fit: BoxFit.cover, width: 1000.0),
           ),
         ))
@@ -58,30 +65,45 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     Container(
-                      height: 38, // Set the height of the Icon
-                      child: Icon(
-                        Icons.percent,
-                        size: 38,
+                      margin: EdgeInsets.only(right: 20, top: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.percent,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {},
                       ),
                     ),
                     Container(
-                      width: 38, // Set the width of the Icon
-                      height: 38, // Set the height of the Icon
-                      child: Icon(
-                        Icons.favorite_outline,
-                        size: 38,
+                      margin: EdgeInsets.only(right: 20, top: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
-                    ),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.favorite,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          // Tindakan saat tombol notifikasi ditekan
+                        },
+                      ),
+                    )
                   ],
-                )
+                ),
               ],
             ),
             Container(
               width: double.infinity,
               height: 140,
               decoration: BoxDecoration(
-                color: Colors.red,
-                border: Border.all(color: Colors.red, width: 2.0),
+                color: Color.fromARGB(255, 238, 50, 36),
+                border: Border.all(color: Color.fromARGB(255, 239, 43, 29), width: 2.0),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Column(
@@ -122,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    'Rp. 10.000.000',
+                                    'Rp. 150.000',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -182,21 +204,21 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
                       Icon(
-                        Icons.add_card_outlined,
-                        size: 25,
+                        Icons.add_card_rounded,
+                        size: 35,
                       ),
                       Text("TopUp"),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
                       Icon(
-                        Icons.money,
-                        size: 25,
+                        Icons.account_balance_wallet_rounded,
+                        size: 35,
                       ),
                       Text(
                         "Send Money",
@@ -205,16 +227,22 @@ class HomeScreen extends StatelessWidget {
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
+                      Icon(
+                        Icons.confirmation_number_rounded,
+                        size: 35,
+                      ),
                       Text("Ticket Code"),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
+                      Icon(
+                        Icons.apps_rounded,
+                        size:35,
+                      ),
                       Text("See All"),
                     ]),
                   ),
@@ -228,30 +256,39 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.add_card_outlined),
-                      Text("Pulsa"),
+                      Icon(
+                        Icons.speaker_phone_sharp,
+                        size:35,
+                        ),
+                      Text("Pulsa/Data"),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.money),
+                      Icon(
+                        Icons.electric_bolt_rounded,
+                        size: 35),
                       Text("Electricity"),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
+                      Icon(
+                        Icons.health_and_safety_rounded,
+                        size: 35),
                       Text("BPJS"),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
+                      Icon(
+                        Icons.gamepad_rounded,
+                        size: 35),
                       Text("mgames"),
                     ]),
                   ),
@@ -265,30 +302,38 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.add_card_outlined),
-                      Text("Internet"),
+                      Icon(
+                        Icons.connected_tv,
+                        size: 35),
+                      Text("Cable TV & Internet"),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.money),
+                      Icon(
+                        Icons.water_drop,
+                        size:35),
                       Text("PDAM"),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
-                      Text("Kartu Elektronik",textAlign: TextAlign.center,),
+                      Icon(
+                        Icons.credit_card,
+                        size:35),
+                      Text("Kartu Uang Elektronik",textAlign: TextAlign.center,),
                     ]),
                   ),
                   Container(
-                    width: 80,
+                    width: 90,
                     child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
+                      Icon(
+                        Icons.more_horiz_rounded,
+                        size:35),
                       Text("More"),
                     ]),
                   ),
@@ -297,43 +342,116 @@ class HomeScreen extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 80,
-                    child: Column(children: [
-                      Icon(Icons.add_card_outlined),
-                      Text("TopUp"),
-                    ]),
-                  ),
-                  Container(
-                    width: 80,
-                    child: Column(children: [
-                      Icon(Icons.money),
-                      Text("Send Money"),
-                    ]),
-                  ),
-                  Container(
-                    width: 80,
-                    child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
-                      Text("Ticket Code"),
-                    ]),
-                  ),
-                  Container(
-                    width: 80,
-                    child: Column(children: [
-                      Icon(Icons.airplane_ticket_outlined),
-                      Text("See All"),
-                    ]),
-                  ),
-                ],
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  height: 100.0,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  enlargeFactor: 0.2,
+                ),
+                items: imageSliders,
               ),
             ),
           ]),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: const Icon(Icons.qr_code_2_outlined),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            NavIcon(
+              iconData: Icons.home_outlined,
+              name: "Home",
+              onTap: () {},
+            ),
+            NavIcon(
+              iconData: Icons.history,
+              name: "History",
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => History(),
+                  ),
+                );
+              },
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 25),
+                    child: Text(
+                      "Pay",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            NavIcon(
+              iconData: Icons.inbox_outlined,
+              name: "Inbox",
+            ),
+            NavIcon(
+              iconData: Icons.account_circle_outlined,
+              name: "Account",
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NavIcon extends StatelessWidget {
+  final IconData iconData;
+  final String name;
+  final void Function()? onTap;
+
+  const NavIcon({
+    super.key,
+    required this.iconData,
+    required this.name,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(30),
+        onTap: onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              iconData,
+              color: Colors.grey,
+            ),
+            Text(
+              name,
+              style: const TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
