@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "381206905366",
+    "project_id": "uasapp1-493ca",
+    "storage_bucket": "uasapp1-493ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381206905366:android:9c33c58a723d442e9d2b37",
+        "android_client_info": {
+          "package_name": "com.example.uas_rental_mobil_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIe1wQ14mC1lwecAFr-hfnirieGjQCSSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
